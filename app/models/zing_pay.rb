@@ -5,6 +5,7 @@ class ZingPay
   # https://sso3.zing.vn/alogin
   PaymentUrl = 'https://new.pay.zing.vn/ajax/paymenft-zingcard'
   PaymentUrl2 = 'https://pay.zing.vn/ajax/payment-zingcard'
+  PaymentResult = 'https://pay.zing.vn/ajax/get-result/'
   PaymentHost = 'new.pay.zing.vn'
 
 
@@ -52,7 +53,7 @@ class ZingPay
       roleName: "",
       sID: 3659
     }
-
+    puts @data
     result = @agent.post PaymentUrl2, @data
     result = JSON.parse result.body
     p result
@@ -61,16 +62,35 @@ class ZingPay
   end
 
   def check_transation_success(data)
-    
+    puts "daay data"
+    puts data
+    result =  agent.post(PaymentResult, {transID: data['transID']})
+    result = JSON.parse result.body
+    if result["pmcID"] == 1 && result["promotionTransID"].present?
+      rs = {
+        message: "Ban vua nap thanh cong #{result['grossValue']}",
+        code: 200
+      }
+    else
+      rs = {
+        message: result['returnMessage'],
+        code: 500
+      }
+    end
+    rs
   end
-
   def main(card_seri, card_pass)
     begin
       login
       regexCardSeri(card_seri)
-      payment(card_seri, card_pass)
-    rescue Exception => exception
-      p exception
+      _data = payment(card_seri, card_pass)
+      check_transation_success(_data)
+    rescue Exception => e
+      p e
+      {
+        status: 'fail',
+        message: e.message.to_s
+      }
     end
   end
   
