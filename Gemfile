@@ -37,6 +37,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'nokogiri'
 gem 'mechanize'
+
+gem 'capistrano',  '~> 3.1'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
+gem 'capistrano3-delayed-job', '~> 1.0'
+gem 'capistrano3-puma', '~> 3.1.1' #github: "seuros/capistrano-puma"
 # gem 'faraday'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
