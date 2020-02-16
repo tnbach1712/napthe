@@ -67,14 +67,18 @@ class ZingPay
     result =  agent.post(PaymentResult, {transID: data['transID']})
     result = JSON.parse result.body
     if result["pmcID"] == 1 && result["promotionTransID"].present?
+
       rs = {
-        message: "Ban vua nap thanh cong #{result['grossValue']}",
-        code: 200
+        code: 0,
+        msg: "Ban vua nap thanh cong #{result['grossValue']}",
+        info_card: "#{result['grossValue']}",
+        transaction_id: data['transID'],
       }
     else
       rs = {
+        code: 1
         message: result['returnMessage'],
-        code: 500
+        transaction_id: 0
       }
     end
     rs

@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     puts card_params
     zingpay = ZingPay.new(username: "nnbcndo300", password: "qweqwe")
     result = zingpay.main(card_params[:serial], card_params[:number])
-    render :json => {data: result,}
+    render :json => {data: result}
   end
 
   private
