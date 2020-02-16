@@ -96,6 +96,7 @@ class ZingPay
         code: 1,
         status: 'fail',
         msg: e.message.to_s,
+        info_card: 0,
         transaction_id: 0
       }
     end
