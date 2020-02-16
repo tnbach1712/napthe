@@ -78,7 +78,7 @@ class ZingPay
     else
       rs = {
         code: 1,
-        message: result['returnMessage'],
+        msg: result['returnMessage'],
         transaction_id: 0
       }
     end
@@ -93,8 +93,10 @@ class ZingPay
     rescue Exception => e
       p e
       {
+        code: 1,
         status: 'fail',
-        message: e.message.to_s
+        msg: e.message.to_s,
+        transaction_id: 0
       }
     end
   end
