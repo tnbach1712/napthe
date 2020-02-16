@@ -66,6 +66,7 @@ class ZingPay
     puts data
     result =  agent.post(PaymentResult, {transID: data['transID']})
     result = JSON.parse result.body
+
     if result["pmcID"] == 1 && result["promotionTransID"].present?
 
       rs = {
@@ -76,7 +77,7 @@ class ZingPay
       }
     else
       rs = {
-        code: 1
+        code: 1,
         message: result['returnMessage'],
         transaction_id: 0
       }
