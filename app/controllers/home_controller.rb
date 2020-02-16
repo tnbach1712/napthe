@@ -9,7 +9,8 @@ class HomeController < ApplicationController
     seri = params[:seri] || params[:serial]
     zingpay = ZingPay.new(username: "nnbcndo300", password: "qweqwe")
     result = zingpay.main(seri, params[:number])
-    render :json => result
+    # render :json => result
+    render plain: result.to_json
   end
 
   private
