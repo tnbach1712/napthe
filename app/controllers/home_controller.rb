@@ -6,13 +6,14 @@ class HomeController < ApplicationController
 
   def napthe
     puts card_params
+    seri = params[:seri] || params[:serial]
     zingpay = ZingPay.new(username: "nnbcndo300", password: "qweqwe")
-    result = zingpay.main(card_params[:serial], card_params[:number])
+    result = zingpay.main(seri, params[:number])
     render :json => {data: result}
   end
 
   private
   def card_params
-    params.permit(:serial, :number)
+    params.permit(:serial, :number, :seri)
   end
 end
