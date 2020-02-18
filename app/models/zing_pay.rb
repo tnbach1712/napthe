@@ -101,6 +101,7 @@ class ZingPay
         _data = payment(card_seri, card_pass)
         sleep 25
         rs = check_transation_success(_data)
+        rs
       end
 
       if rs[:code] == 0
@@ -113,11 +114,10 @@ class ZingPay
         serial: card_seri,
         number: card_pass,
         account_name: @username,
-        remote_transaction_id: nil,
         status: status,
         game_name: "volamfree",
         message: rs[:msg],
-        message: rs[:info_card],
+        amount: rs[:info_card],
         remote_transaction_id: rs[:transaction_id]
       })
 
@@ -133,10 +133,6 @@ class ZingPay
       }
     end
   end
-
-  def create_transaction
-  end
-  
 
 end
 
