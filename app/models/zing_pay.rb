@@ -64,9 +64,10 @@ class ZingPay
   def check_transation_success(data)
     puts "daay data"
     puts data
+    
     result =  agent.post(PaymentResult, {transID: data['transID']})
     result = JSON.parse result.body
-    sleep 25
+    
     if result["pmcID"] == 1 && result["promotionTransID"].present?
 
       rs = {
@@ -89,6 +90,7 @@ class ZingPay
       login
       regexCardSeri(card_seri)
       _data = payment(card_seri, card_pass)
+      sleep 20
       check_transation_success(_data)
     rescue Exception => e
       p e
