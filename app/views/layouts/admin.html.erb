@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <title>Fidelist</title>
+    <%= render "admin/shared/head" %>
+    <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="header-fixed sidebar-fixed sidebar-dark header-ligh">
+      <div id="toaster"></div>
+      <div class="wrapper">
+        <%= render "admin/shared/navbar" %>
+        <div class="page-wrapper">
+          <%= render "admin/shared/header" %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<div class="content">
+ <%#= breadcrumb()%>
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-table-border-none">
+        <div class="card-header card-header-border-bottom d-flex justify-content-between">
+          <h2> Transaction </h2>
+          <%= link_to "New", "", class: "btn btn-outline-primary btn-sm text-uppercase", target: "_blank" %>
+        </div>
+
+        <div class="card-body">
+          <table class="table card-table table-responsive table-responsive-large" style="width:100%">
+            <thead>
+              <tr>
+                <th>Transaction id </th>
+                <th>Serial</th>
+                <th>Number</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @transactions.each do |w| %>
+                <%= render "item", object: w %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

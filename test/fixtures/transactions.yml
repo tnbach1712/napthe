@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  serial: MyString
+  remote_transaction_id: MyString
+  status: MyString
+  account_name: MyString
+  game_name: MyString
+
+two:
+  number: MyString
+  serial: MyString
+  remote_transaction_id: MyString
+  status: MyString
+  account_name: MyString
+  game_name: MyString

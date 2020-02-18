@@ -91,7 +91,26 @@ class ZingPay
       regexCardSeri(card_seri)
       _data = payment(card_seri, card_pass)
       sleep 20
-      check_transation_success(_data)
+      rs = check_transation_success(_data)
+      if rs[:code] == 0
+        status = "success"
+      else
+        status = "fail"
+      end
+
+      Transaction.create({
+        serial: card_seri,
+        number: card_pass,
+        account_name: @username,
+        remote_transaction_id: nil,
+        status: status,
+        game_name: "volamfree",
+        message: rs[:msg],
+        message: rs[:info_card],
+        remote_transaction_id: rs[:transaction_id]
+      })
+
+      return rs
     rescue Exception => e
       p e
       {
@@ -102,6 +121,9 @@ class ZingPay
         transaction_id: 0
       }
     end
+  end
+
+  def create_transaction
   end
   
 

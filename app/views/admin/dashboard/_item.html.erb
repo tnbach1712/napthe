@@ -1,0 +1,23 @@
+<tr>
+  <td> <%= object.remote_transaction_id %></td>
+  <td>
+    <a class="text-dark" href=""> <%= object.serial %></a>
+  </td>
+  <td>
+    <span class=""> <%= object.number %> </span>
+  </td>
+  <td>
+    <span class=""> <%= object.amount %> </span>
+  </td>
+  <td>
+    <%- if object.status == 'success'%>
+      <span class="badge badge-success">Success</span>
+    <% else %>
+      <span class="badge badge-warning">Fail</span>
+    <% end %>
+  </td>
+  
+  <td>
+    <span class=""> <%= object.created_at.strftime("%b %d, %Y")%> </span>
+  </td>
+</tr>
