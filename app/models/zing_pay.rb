@@ -67,7 +67,7 @@ class ZingPay
     
     result =  agent.post(PaymentResult, {transID: data['transID']})
     result = JSON.parse result.body
-    
+    Rails.logger.info result
     if result["pmcID"] == 1 && result["promotionTransID"].present?
 
       rs = {
@@ -99,7 +99,7 @@ class ZingPay
         login
         regexCardSeri(card_seri)
         _data = payment(card_seri, card_pass)
-        sleep 20
+        sleep 25
         rs = check_transation_success(_data)
       end
 
