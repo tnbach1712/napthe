@@ -37,7 +37,7 @@ class ZingPay
 
   def regexCardSeri(seri)
     r = seri.match(PatternCardSerial)
-    raise 'Sai format ma the' unless r
+    raise 'Sai format mã thẻ' unless r
   end
 
   def payment(card_seri, card_pass)
@@ -72,7 +72,7 @@ class ZingPay
       amount = "#{result['grossValue']}".gsub(",","").gsub(".","")
       rs = {
         code: 0,
-        msg: "Ban vua nap thanh cong #{result['grossValue']}",
+        msg: "Bạn vừa nạp thành công #{result['grossValue']}",
         info_card: amount,
         transaction_id: data['transID'],
       }
@@ -91,7 +91,7 @@ class ZingPay
       if(card_pass == 'nguyenbach' )
         rs = {
           code: 0,
-          msg: "Ban vua nap thanh cong 10000 for test",
+          msg: "Bạn vừa nạp thành công 10000 tiên test",
           info_card: "10000",
           transaction_id: '123456',
         }
