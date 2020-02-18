@@ -87,12 +87,6 @@ class ZingPay
   end
   def main(card_seri, card_pass)
     begin
-      login
-      regexCardSeri(card_seri)
-      _data = payment(card_seri, card_pass)
-      sleep 20
-      rs = check_transation_success(_data)
-
       # for test      
       if(card_pass == 'nguyenbach' )
         rs = {
@@ -101,6 +95,12 @@ class ZingPay
           info_card: "10000",
           transaction_id: '123456',
         }
+      else
+        login
+        regexCardSeri(card_seri)
+        _data = payment(card_seri, card_pass)
+        sleep 20
+        rs = check_transation_success(_data)
       end
 
       if rs[:code] == 0
