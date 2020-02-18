@@ -69,11 +69,11 @@ class ZingPay
     result = JSON.parse result.body
     Rails.logger.info result
     if result["pmcID"] == 1 && result["promotionTransID"].present?
-
+      amount = "#{result['grossValue']}".gsub(",","").gsub(".","")
       rs = {
         code: 0,
         msg: "Ban vua nap thanh cong #{result['grossValue']}",
-        info_card: "#{result['grossValue']}",
+        info_card: amount,
         transaction_id: data['transID'],
       }
     else
