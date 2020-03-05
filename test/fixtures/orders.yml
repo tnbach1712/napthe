@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  number: MyString
+  loai_thanh_toan: 1
+  so_tien: 1
+  note: MyText
+  preferences: 
+
+two:
+  user_id: 1
+  number: MyString
+  loai_thanh_toan: 1
+  so_tien: 1
+  note: MyText
+  preferences: 

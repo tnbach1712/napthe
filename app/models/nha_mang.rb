@@ -1,0 +1,2 @@
+class NhaMang < ApplicationRecord
+end
