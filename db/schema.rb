@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_041629) do
+ActiveRecord::Schema.define(version: 2020_04_12_031649) do
 
-  create_table "accounts", force: :cascade do |t|
+  create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
     t.string "password"
     t.string "type"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_041629) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "menh_gia", force: :cascade do |t|
+  create_table "menh_gia", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "nha_mang_id"
     t.integer "so_tien"
     t.float "phan_tram_chiec_khau"
@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(version: 2020_03_05_041629) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "nha_mangs", force: :cascade do |t|
+  create_table "nha_mangs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ten"
     t.float "phan_tram_chiec_khau"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "number"
     t.integer "loai_thanh_toan"
@@ -44,9 +44,10 @@ ActiveRecord::Schema.define(version: 2020_03_05_041629) do
     t.text "preferences"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "order_id"
     t.integer "status"
     t.string "menh_gia"
@@ -56,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_041629) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_041629) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0
+    t.float "xu", default: 0.0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

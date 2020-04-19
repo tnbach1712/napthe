@@ -1,0 +1,34 @@
+<div class="container mt-1">
+  <div class="row"> 
+    <div class="col-md-6 col-sm-4"> 
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item border-0 pt-0">
+          <button type="button" class="btn btn-primary">
+            Số tiền:  <span class="badge badge-light">90000</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6 col-sm-8">
+      <%if current_user.blank? %>
+        <ul class="list-group list-group-horizontal float-right">
+          <li class="list-group-item border-0 pt-0">
+            <%= link_to "Đăng ký", new_user_registration_path, class: "btn btn-primary btn-sm" %>
+          </li>
+          <li class="list-group-item border-0 pt-0">
+            <%= link_to "Đăng Nhập", new_user_session_path, class: "btn btn-primary btn-sm" %>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item border-0">
+            <%= link_to "#{current_user.email}", "", class: "btn btn-success btn-sm" %>
+          </li>
+          <li class="list-group-item border-0">
+            <%= link_to "Đăng Xuất", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm" %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

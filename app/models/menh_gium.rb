@@ -1,2 +1,0 @@
-class MenhGium < ApplicationRecord
-end

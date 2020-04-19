@@ -1,0 +1,6 @@
+<%- if @order.errors.present? %>
+  swal( "Thất bại!", "Không thể giao dịch" , "error" );
+<% else %>
+  <% text = "Bạn vừa đổi thẻ cào của nhà mạng #{@order.preferred_nha_mang } mệnh giá  #{ number_to_currency(@order.so_tien, precision: 0, unit: 'đ', separator: ',', delimiter: '.', format: '%n%u') }" %>
+  swal( "Thành công!", "<%= text %> " , "success" );
+<% end %>

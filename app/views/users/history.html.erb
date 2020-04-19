@@ -1,0 +1,32 @@
+<div class="container">
+  <%= render "shared/banner_main" %>
+
+  <h3> Lịch sử  giao dịch</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Loại thanh toán </th>
+        <th scope="col">Nhà mạng</th>
+        <th scope="col">Số tiền</th>
+        <th scope="col">Trạng thái</th>
+        <th scope="col"> </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <%- @history_orders.each do |order| %>
+        <tr>
+          <th scope="row"><%= order.number%></th>
+          <td><%= order.loai_thanh_toan%> </td>
+          <td><%= order.preferred_nha_mang%> </td>
+          <td><%= number_to_currency(order.so_tien, precision: 0, unit: 'đ', separator: ',', delimiter: '.', format: '%n%u') %> </td>
+          <td> <span class="badge badge-primary"><%= order.status %>  </span>  </td>
+          <td><%= order.created_at.strftime("%d/%m/%Y") %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
