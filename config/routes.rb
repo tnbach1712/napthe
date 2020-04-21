@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :transaction
     resources :dashboard
+    resources :orders do
+      collection do
+        get :list_pending_doi_the
+      end
+    end
     root 'dashboard#index'
+
   end
   match 'history', to: 'users#history', via: [:get]
   # root 'admin/dashboard#index'

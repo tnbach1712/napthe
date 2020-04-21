@@ -1,0 +1,29 @@
+<tr>
+  <td>  <a class="text-dark" href=""> <%= object.email  %></a> </td>
+  <td>
+     <%= object.preferred_nha_mang %>
+  </td>
+  <td>
+    <span class=""> <%= object.preferred_ma_the %> </span>
+  </td>
+  <td>
+    <span class=""> <%= object.preferred_serial %>  </span>
+  </td>
+  <td>
+    <span class=""> <%= number_to_currency(object.so_tien, precision: 0, unit: 'đ', separator: ',', delimiter: '.', format: '%n%u')  %>  </span>
+  </td>
+  <td>
+    <%- if object.status == 'success'%>
+      <span class="badge badge-success">Success</span>
+    <% else %>
+      <span class="badge badge-warning"> Chờ xử lý</span>
+    <% end %>
+  </td>
+  <td>
+    <span class=""> <%= object.created_at.strftime("%b %d, %Y")%> </span>
+  </td>
+  <td>
+    <%= link_to "Thẻ hợp lệ", "", class: "btn btn-primary" %>
+    <%= link_to "Thẻ Không hợp lệ", "", class: "btn btn-danger" %>
+  </td>
+</tr>

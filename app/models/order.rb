@@ -5,6 +5,8 @@ class Order < Base
   belongs_to :user
   validates :so_tien, numericality: { greater_than: 0 }
 
+  delegate :email, to: :user, allow_nil: true
+
   preference :nha_mang, :string, default: ""
   preference :serial, :string, default: ""
   preference :ma_the, :string, default: ""

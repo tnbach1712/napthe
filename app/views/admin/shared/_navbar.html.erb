@@ -27,13 +27,38 @@
     <div class="sidebar-scrollbar">
       <!-- sidebar menu -->
       <ul class="nav sidebar-inner" id="sidebar-menu">
+
         <li  class="has-sub active expand" >
+          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#orders-nav"
+            aria-expanded="false" aria-controls="orders-nav">
+          <i class="mdi mdi-view-dashboard-outline"></i>
+          <span class="nav-text"> Đơn hàng</span> <b class="caret"></b>
+          </a>
+          <ul  class="collapse show"  id="orders-nav"
+            data-parent="#sidebar-menu">
+            <div class="sub-menu">
+              <li  class="" >
+                <%= item_link_nav("Đơn hàng", list_pending_doi_the_admin_orders_path, class: "sidenav-item-link") %>
+              </li>
+              <li  class="" >
+                <%= item_link_nav("Thẻ chờ xử lý", list_pending_doi_the_admin_orders_path, class: "sidenav-item-link") %>
+              </li>
+              <li  class="" >
+                <%= item_link_nav("Yêu cầu thanh toán", list_pending_doi_the_admin_orders_path, class: "sidenav-item-link") %>
+              </li>
+              <li  class="" >
+              </li>
+            </div>
+          </ul>
+        </li>
+
+        <li  class="has-sub " >
           <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
             aria-expanded="false" aria-controls="dashboard">
           <i class="mdi mdi-view-dashboard-outline"></i>
           <span class="nav-text">Manage</span> <b class="caret"></b>
           </a>
-          <ul  class="collapse show"  id="dashboard"
+          <ul  class="collapse"  id="dashboard"
             data-parent="#sidebar-menu">
             <div class="sub-menu">
               <li  class="" >
@@ -44,7 +69,7 @@
             </div>
           </ul>
         </li>
-        
+
       </ul>
     </div>
     <div class="sidebar-footer">
