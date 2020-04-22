@@ -5,7 +5,7 @@ class Admin::BaseController < ApplicationController
 
 
   def authenticate_admin!
-    if !current_user.role == 1
+    if !current_user.admin?
       sign_out current_user 
       redirect_to "/"
     end
