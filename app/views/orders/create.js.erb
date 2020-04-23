@@ -1,6 +1,10 @@
 <%- if @order.errors.present? %>
   swal( "Thất bại!", "Không thể giao dịch" , "error" );
 <% else %>
+  <%- if @loai_thanh_toan == 'doi_the' %>
   <% text = "Bạn vừa đổi thẻ cào của nhà mạng #{@order.preferred_nha_mang } mệnh giá  #{ number_to_currency(@order.so_tien, precision: 0, unit: 'đ', separator: ',', delimiter: '.', format: '%n%u') }" %>
+  <% elsif  @loai_thanh_toan == 'rut_tien'  %>
+    <% text = " Gởi yêu cầu rút tiền thành công." %>
+  <% end %>
   swal( "Thành công!", "<%= text %> " , "success" );
 <% end %>

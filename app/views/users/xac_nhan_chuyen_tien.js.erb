@@ -1,0 +1,11 @@
+<%- if @order.errors.present? %>
+  swal( "Thất bại!", "Không thể giao dịch" , "error" );
+<%- elsif  @order.fail?  %>
+  swal( "Thất bại!", '<%= @order.note %> ', "error" );
+<% else %>
+  <% text = " Chuyển tiền thành công." %>
+  swal( "Thành công!", "<%= text %> " , "success" );
+  setTimeout( function(){
+    window.location.reload()
+  }, 3000)
+<% end %>

@@ -20,18 +20,16 @@
                 <th> Số tiền</th>
                 <th> Trạng thái</th>
                 <th></th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
               <% @orders.each do |order| %>
-                <%= render "item_doi_the", object: order %>
+                <%= render "item", object: order %>
               <% end %>
             </tbody>
           </table>
           <div>
             <%= will_paginate( @orders, renderer: WillPaginate::ActionView::BootstrapLinkRenderer )%>
-
           </div>
         </div>
       </div>

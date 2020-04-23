@@ -22,7 +22,7 @@
           <td><%= order.loai_thanh_toan%> </td>
           <td><%= order.preferred_nha_mang%> </td>
           <td><%= number_to_currency(order.so_tien, precision: 0, unit: 'đ', separator: ',', delimiter: '.', format: '%n%u') %> </td>
-          <td> <span class="badge badge-primary"><%= order.status %>  </span>  </td>
+          <td> <span class="badge <%= 'badge-danger' if order.fail? %> <%= 'badge-success' if order.success? %>  <%= 'badge-warning' if order.pending? %>  "> <%= order.status %>  </span>  </td>
           <td><%= order.created_at.strftime("%d/%m/%Y") %> </td>
         </tr>
       <% end %>

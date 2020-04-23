@@ -1,0 +1,47 @@
+<div class="section-title bg-lable1">
+  <h3 class="text-center text-light pt-2 pb-2  ">Đổi Thẻ Cào</h3>
+</div>
+<div class="form-content bg1 p-2">
+  <%= form_for(current_order, html: {id: "card-recharing"}, :remote => true, ) do |f| %>
+    <%= f.hidden_field :loai_thanh_toan, value: 'doi_the' %>
+    <div class="form-group">
+      
+      <select class="form-control valid" name="order[preferred_nha_mang]">
+        <option value="">Chọn loại thẻ</option>
+        <option selected="selected" value="Viettel">Viettel (33%)</option>
+        <option value="Vinaphone">Vinaphone (34%)</option>
+        <option value="Mobifone">Mobifone (35%)</option>
+        <option value="Zing">ZING (27%)</option>
+        <option value="Vcoin">Vcoin (26%)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <select class="form-control valid" name="order[so_tien]" id="so_tien">
+        <option value="">Chọn mệnh giá</option>
+        <option value="10000">10,000đ (35%)</option>
+        <option value="20000">20,000đ (35%)</option>
+        <option value="30000">30,000đ (35%)</option>               	
+        <option value="50000">50,000đ</option>
+        <option value="100000">100,000đ</option>
+        <option value="200000">200,000đ</option>
+        <option value="300000">300,000đ</option>
+        <option value="500000">500,000đ</option>
+        <option selected="selected" value="1000000">1,000,000đ</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :preferred_serial, style: "background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;", id: "serial1", class: "form-control txt", placeholder: "Số seri" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :preferred_ma_the, style: "background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;", id: "code1", class: "form-control txt", placeholder: "Mã thẻ" %>
+    </div>
+    <div class="form-group">                   
+      <font color="red">- Thẻ xử lý từ 30s - 5p </font><br>
+      <font color="red">- Sai mệnh giá bị thu thẻ và không cộng tiền </font>
+    </div>                                
+    <div class="form-group divbt">
+        <button class="btn btn-spec1 btn-md btn-block btn-success" id="paycard" type='submit'>Nạp thẻ ngay</button>
+    </div>
+  <% end %>
+  
+</div>

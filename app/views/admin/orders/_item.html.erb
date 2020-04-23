@@ -25,8 +25,5 @@
   <td>
     <span class=""> <%= object.created_at.strftime("%b %d, %Y")%> </span>
   </td>
-  <td>
-    <%= link_to "Thẻ hợp lệ", doi_the_success_admin_order_path(object), class: "btn btn-primary", remote: true, :method => :post %>
-    <%= link_to "Thẻ Không hợp lệ", doi_the_fail_admin_order_path(object), class: "btn btn-danger", remote: true, :method => :post %>
-  </td>
+  
 </tr>

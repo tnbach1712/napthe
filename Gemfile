@@ -40,9 +40,10 @@ gem 'bootstrap', '~> 4.4.1'
 
 gem 'jquery-rails'
 gem "font-awesome-rails"
-
 gem 'nokogiri'
 gem 'mechanize'
+gem 'will_paginate', '3.1.7'
+gem 'will_paginate-bootstrap4'
 
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
