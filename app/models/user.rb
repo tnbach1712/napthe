@@ -7,7 +7,7 @@
   enum role: [ :user, :admin ]
 
   has_many :orders
-
+  
   def nap_tien(_xu)
     return if _xu <= 0
     self.xu += _xu
@@ -19,6 +19,10 @@
     return if _xu <= 0 || xu <= 0 || (_xu > xu )
     self.xu -= _xu
     save
+  end
+
+  def ref_user
+    User.find(ref_id) if ref_id.present?
   end
 
   def xac_nhan_chuyen_tien(order)

@@ -31,6 +31,8 @@ class Order < Base
     nha_mang = ::NhaMang.find_by(ten: self.preferred_nha_mang)
     tien_duoc_cong = so_tien * nha_mang.phan_tram_chiec_khau
     self.user.nap_tien(tien_duoc_cong)
+    # cong tien cho ref_user
+    self.user.ref_user.nap_tien(so_tien*0.01) if self.user.try(:ref_user).present?
   end
 
   def the_that_bai!
