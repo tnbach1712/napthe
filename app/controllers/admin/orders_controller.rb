@@ -7,6 +7,10 @@ class Admin::OrdersController < Admin::BaseController
 
   def list_pending_doi_the
     @orders = Order.doi_the.pending.paginate(page: params[:page], per_page: 30)
+    respond_to do |format|
+      format.html
+      format.json { render json: OrderDatatable.new(params, view_context: view_context, type: :doi_the) }
+    end
   end
 
 

@@ -9,7 +9,13 @@
         </div>
 
         <div class="card-body">
-          <table class="table card-table table-responsive table-responsive-large" style="width:100%">
+          <table id="orders-pending-datatable"  class="table card-table table-responsive table-responsive-large" data-source="<%= list_pending_doi_the_admin_orders_path(format: :json) %>">
+            <div class="row mb-2">
+              <div class="col-sm-3">
+                <%= select_tag :search_nha_mang, options_for_select( Order::NhaMang, {:prompt => 'Tìm theo nhà mạng'} ), class: "form-control"%>
+              </div>
+            </div>
+            <hr/>
             <thead>
               <tr>
                 <th> Number </th>
@@ -19,20 +25,14 @@
                 <th> Serial </th>
                 <th> Số tiền</th>
                 <th> Trạng thái</th>
-                <th></th>
+                <th> Ngày tạo </th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <% @orders.each do |order| %>
-                <%= render "item_doi_the", object: order %>
-              <% end %>
             </tbody>
           </table>
-          <div>
-            <%= will_paginate( @orders, renderer: WillPaginate::ActionView::BootstrapLinkRenderer )%>
 
-          </div>
         </div>
       </div>
     </div>

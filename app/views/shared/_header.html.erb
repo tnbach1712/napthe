@@ -31,6 +31,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Hướng Dẫn</a>
           </li>
+          <%- if current_user.present? %>
           <li class="nav-item">
             <%= link_to "Nạp tiền vào tài khoản", "/nap-tien", class: "nav-link"%>
           </li>
@@ -40,6 +41,7 @@
           <li class="nav-item">
             <%= link_to "Chuyển Tiền ", "/chuyen-tien", class: "nav-link"%>
           </li>
+          <% end %>
         </ul>
    
       </div>

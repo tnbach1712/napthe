@@ -1,8 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :require_login, only: [:create]
   def index
   end
   def create
     p order_params
+
     @order = case type_order 
       when 'doi_the'
         current_user.orders.create(order_params)
@@ -11,6 +13,7 @@ class OrdersController < ApplicationController
       when 'chuyen_tien'
         current_user.orders.create(order_chuyen_tien_params)
       end
+    
 
     respond_to do |format|
       if @order
@@ -47,5 +50,14 @@ class OrdersController < ApplicationController
 
   def type_order
     params[:order][:loai_thanh_toan]
+  end
+
+  def require_login
+    if current_user.blank?
+      respond_to do |format|
+        format.js { render :js => "swal('Cảnh báo','Vui lòng đăng nhập để sử dụng tính năng này!!!', 'warning')" }
+      end
+      return 
+    end
   end
 end
