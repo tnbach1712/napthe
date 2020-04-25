@@ -1,0 +1,38 @@
+<div class="content">
+ <%#= breadcrumb()%>
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-table-border-none">
+        <div class="card-header card-header-border-bottom d-flex justify-content-between">
+          <h2> Giao dich cần xác nhận </h2>
+          <%= link_to "New", "", class: "btn btn-outline-primary btn-sm text-uppercase", target: "_blank" %>
+        </div>
+
+        <div class="card-body">
+          <table id="orders-pending-rut-tien"  class="table card-table table-responsive table-responsive-large" data-source="<%= list_pending_rut_tien_admin_orders_path(format: :json) %>">
+            <div class="row mb-2">
+              <div class="col-sm-3">
+                
+              </div>
+            </div>
+            <hr/>
+            <thead>
+              <tr>
+                <th> Number </th>
+                <th> User </th>
+                <th> Số tiền</th>
+                <th> Trạng thái</th>
+                <th> Ngày tạo </th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

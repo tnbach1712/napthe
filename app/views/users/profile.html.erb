@@ -1,0 +1,27 @@
+<div class="container">
+  <%= render "shared/banner_main" %>
+
+  <h3>  User đã giới thiệu </h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email </th>
+        <th scope="col"> </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <%- @users.each_with_index do |u,i| %>
+        <tr>
+          <th scope="row"><%= i+1 %></th>
+          <td><%= u.email%> </td>
+          <td><%= order.preferred_nha_mang%> </td>
+          <td><%= u.created_at.strftime("%d/%m/%Y") %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

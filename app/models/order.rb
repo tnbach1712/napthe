@@ -24,7 +24,7 @@ class Order < Base
   end
 
   def the_thanh_cong!
-    return false if success? || fail?
+    return false if ( success? || fail? ) && !doi_the?
     success!
     # cong tiền vào tài khoản
     # tính tiền cộng

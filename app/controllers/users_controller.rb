@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def history
     @history_orders = current_user.orders
+  end
+
+  def profile
+
+    @users = User.where(ref_id: current_user.try(:id))
   end
 
   def rut_tien

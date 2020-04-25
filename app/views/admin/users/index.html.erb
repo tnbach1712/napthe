@@ -1,0 +1,37 @@
+<div class="content">
+ <%#= breadcrumb()%>
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-table-border-none">
+        <div class="card-header card-header-border-bottom d-flex justify-content-between">
+          <h2> User </h2>
+          
+        </div>
+
+        <div class="card-body">
+          <table id="users-datatable"  class="table card-table table-responsive table-responsive-large" data-source="<%= admin_users_path(format: :json) %>">
+            <div class="row mb-2">
+              <div class="col-sm-3">
+                <%#= select_tag :search_nha_mang, options_for_select( Order::NhaMang, {:prompt => 'Tìm theo nhà mạng'} ), class: "form-control"%>
+              </div>
+            </div>
+            <hr/>
+            <thead>
+              <tr>
+                <th> Id </th>
+                <th> Email </th>
+                <th> Xu </th>
+                <th> Ref user </th>
+                <th> Ngay đăng ký </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

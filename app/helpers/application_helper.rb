@@ -41,4 +41,10 @@ module ApplicationHelper
       link_to("Thất Bại", doi_the_fail_admin_order_path(order), class: "btn btn-danger ", remote: true, :method => :post)
     end
   end
+
+  def btn_confirm_order_thanh_cong
+  end
+
+  def btn_confirm_order_that_bai
+  end
 end
