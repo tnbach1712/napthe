@@ -1,130 +1,170 @@
 <div class="container">
   <%= render "shared/banner_main" %>
+</div>
 
-  <div class="row  mt-2">
-    <div class="col-md-6">
-      <%= render "forms/doi_the_cao" %>
-    </div>
-    <div class="col-md-6">
-      <%= render "forms/ban_tkc" %>
-    </div>
-  </div>
-  <div>
-    <div class="">
-        <div style="" class="row">
-            <div class="col-md-8 col-sm-12 p-0">
-                <br>
-                <h1 class="page_titel" style="font-size:18px;font-weight: bold;">CHIẾT KHẤU SIÊU ƯU ĐÃI CHỈ CÓ TẠI XXXXX</h1>
-                <div style=""></div>
-                <br>
-                <div style="">
-                    <table border="1" class="table table-bordered table-striped mT20 table-bordered-green" width="100%">
-                        <tbody>
-                            <tr class="bg-lable2">
-                                <td align="center" class="text-center textCASE fz13 fb clfff pdt10 pdb10" valign="middle">
-                                    <h1 class="text-center" style="margin: 0px; text-transform: uppercase;">
-                    <span style="font-size: 18px;">BẢNG GIÁ MUA BÁN THẺ CÀO VÀ GẠCH CƯỚC</span>
-                  </h1>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-left:0px;padding-right:0px;padding-top:0px;">
-                                    <div class="panel-group" id="accordion">
-                                        <div class="panel panel-default">
-                                            <table border="1" cellpadding="1" cellspacing="1" style="width: 100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" style="text-align: center;">
-                                                            <span style="color:#008000;">Loại thẻ</span>
-                                                        </th>
-                                                        <th scope="col" style="text-align: center;">
-                                                            <span style="color:#008000;">Đổi thẻ cào Auto (%)</span>
-                                                        </th>
-                                                        <th scope="col" style="text-align: center;">
-                                                            <span style="color:#008000;">Đổi thông thường (%)</span>
-                                                        </th>
-                                                        <th scope="col" style="text-align: center;">
-                                                            <span style="color:#008000;">Nạp tiền điện thoại (%) </span>
-                                                        </th>
-                                                        <th scope="col" style="text-align: center;">
-                                                            <span style="color:#008000;">Bắn TKC (%)</span>
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="text-align:center;">Viettel</td>
-                                                        <td style="text-align:center;">33</td>
-                                                        <td style="text-align:center;">26</td>
-                                                        <td style="text-align:center;">19</td>
-                                                        <td style="text-align:center;">20</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td style="text-align:center;">Mobifone</td>
-                                                        <td style="text-align:center;">35</td>
-                                                        <td style="text-align:center;">29</td>
-                                                        <td style="text-align:center;">25</td>
-                                                        <td style="text-align:center;">20</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align:center;">Vinaphone</td>
-                                                        <td style="text-align:center;">33</td>
-                                                        <td style="text-align:center;">26</td>
-                                                        <td style="text-align:center;">22</td>
-                                                        <td style="text-align:center;">20</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td style="text-align:center;">VTC - Vcoin</td>
-                                                        <td style="text-align:center;">29</td>
-                                                        <td style="text-align:center;">---</td>
-                                                        <td style="text-align:center;">---</td>
-                                                        <td style="text-align:center;">---</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td style="text-align:center;">Garena</td>
-                                                        <td style="text-align:center;">---</td>
-                                                        <td style="text-align:center;">30</td>
-                                                        <td style="text-align:center;">---</td>
-                                                        <td style="text-align:center;">---</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td style="text-align:center;">Zing </td>
-                                                        <td style="text-align:center;">25</td>
-                                                        <td style="text-align:center;">---</td>
-                                                        <td style="text-align:center;">---</td>
-                                                        <td style="text-align:center;">---</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align:center;">ADSL/FTTH/K+/Next TV</td>
-                                                        <td style="text-align:center;">---</td>
-                                                        <td style="text-align:center;">---</td>
-                                                        <td style="text-align:center;">19</td>
-                                                        <td style="text-align:center;">---</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+<section id="byCard" class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-12" id="frm-byCard">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist" id="listTabCard">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#menu1">Đổi Thẻ Chậm</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active">
+                        <br>
+                        <!-- <h3 class="title"><span>Đổi Thẻ</span></h3> -->
+                        <%= form_for(current_order, html: {id: "card-recharing", class: "frm-fast"}, :remote => true, ) do |f| %>
+                             <%= f.hidden_field :loai_thanh_toan, value: 'doi_the' %>
+                            <div class="form-group">
+                                <label for="menhgia">Chọn nhà mạng </label>
+                                <div class="cc-selector-2">
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3 col-6">
+                                            <input id="viettel" type="radio" name="order[preferred_nha_mang]" value="Viettel" class="d-none" onchange="return Custom.hideSelectPayment('nhamang');">
+                                            <label class="drinkcard-cc viettel" for="viettel"></label>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-6">
+                                            <input id="mobifone" type="radio" name="order[preferred_nha_mang]" value="Mobifone" class="d-none" onchange="return Custom.hideSelectPayment('nhamang');">
+                                            <label class="drinkcard-cc mobifone" for="mobifone"></label>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-6">
+                                            <input id="vinaphone" type="radio" name="order[preferred_nha_mang]" value="Vinaphone" class="d-none" onchange="return Custom.hideSelectPayment('nhamang');">
+                                            <label class="drinkcard-cc vinaphone" for="vinaphone"></label>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-6">
+                                            <input id="vnmb" type="radio" name="order[preferred_nha_mang]" value="Vietnammobile" class="d-none" onchange="return Custom.hideSelectPayment('nhamang');">
+                                            <label class="drinkcard-cc vnmb" for="vnmb"></label>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-6">
+                                            <input id="zing" type="radio" name="order[preferred_nha_mang]" value="ZING" class="d-none" onchange="return Custom.hideSelectPayment('nhamang');">
+                                            <label class="drinkcard-cc zing" for="zing"></label>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-6">
+                                            <input id="gate" type="radio" name="order[preferred_nha_mang]" value="Gate" class="d-none" onchange="return Custom.hideSelectPayment('nhamang');">
+                                            <label class="drinkcard-cc gate" for="gate"></label>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p> &nbsp;</p>
+                                </div>
+                            </div>
+                            <div class="form-group" id="priceList">
+                                <label for="menhgia">Chọn mệnh giá </label>
+                                
+                                
+                                <select class="form-control valid form-control-sm" name="order[so_tien]" id="so_tien">
+                                    <option value="">Chọn mệnh giá</option>
+                                    <option value="10000">10,000đ </option>
+                                    <option value="20000">20,000đ </option>
+                                    <option value="30000">30,000đ </option>               	
+                                    <option value="50000">50,000đ</option>
+                                    <option value="100000">100,000đ</option>
+                                    <option value="200000">200,000đ</option>
+                                    <option value="300000">300,000đ</option>
+                                    <option value="500000">500,000đ</option>
+                                    <option selected="selected" value="1000000">1,000,000đ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="code">Mã thẻ</label>
+                                <%= f.text_field :preferred_ma_the, class: "form-control form-control-sm", placeholder: "Nhập mã thẻ" %>
+                            </div>
+                            <div class="form-group">
+                                <label for="seri">Số Seri</label>
+                                <%= f.text_field :preferred_serial, class: "form-control form-control-sm", placeholder: "Nhập so Seri" %>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-warning btn-submit pull-right" id="addcard">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="spinner" style="display: none;"></span>
+                                    <i class="fa fa-refresh"></i> NẠP THẺ NGAY
+                                </button>
+                            </div>
+                        <% end %>
+                    </div>
                 </div>
-                <br>
             </div>
-            <div class="col-md-4 hidden-xs">
-              <br>
-              <br>
-              <br>
-              <%= image_tag "https://placeimg.com/640/480/any", class: "mw-100" %>
-              <%= image_tag "https://placeimg.com/640/480/any", class: "mw-100" %>
+            <div class="col-md-6 col-lg-6 col-12" id="frm-rating">
+                <h3 class="title"><span>Phí đổi thẻ</span></h3>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nhà mạng</th>
+                            <th scope="col">Chiết khấu</th>
+                            <th scope="col">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Vietnamobile Auto</th>
+                            <td>
+                                24%
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Đang Hoạt Động</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Viettel chậm</th>
+                            <td>
+                                31%
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Đang Hoạt Động</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Viettel Auto</th>
+                            <td>
+                                33%
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Đang Hoạt Động</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Vinaphone Auto (ưu tiên)</th>
+                            <td>
+                                30%
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Đang Hoạt Động</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Mobifone Auto</th>
+                            <td>
+                                38%
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Đang Hoạt Động</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Zing Auto</th>
+                            <td>
+                                25%
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Đang Hoạt Động</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gate Auto</th>
+                            <td>
+                                30%
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Đang Hoạt Động</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>  
-  </div>
+    </div>
+</section>
+
+<div class="clearfix">
 </div>

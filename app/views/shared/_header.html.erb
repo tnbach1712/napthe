@@ -1,52 +1,99 @@
-<%= render "shared/topheader" %>
 
-<hr class="bg-primary clearfix m-0">
-<header class="">
-  <div class="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light container">
-      <a class="navbar-brand" href="/">
-        <img src="http://tk-themes.net/html-organik/images/logo.png"  class="d-inline-block align-top" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav ml-auto">
-          
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Trang Chủ</a>
-          </li>
-
-          <%- if current_user %>
-            <li class="nav-item">
-              <a class="nav-link" href="/history">Lịch sử giao dịch</a>
+<header id="topnav">
+   <!-- Topbar Start -->
+   <div class="navbar-custom">
+      <div class="container">
+         <ul class="list-unstyled topnav-menu float-right mb-0">
+            <li class="dropdown notification-list">
+               <!-- Mobile menu toggle-->
+               <a class="navbar-toggle nav-link">
+                  <div class="lines">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                  </div>
+               </a>
+               <!-- End mobile menu toggle-->
             </li>
-          <% end %>
-
-          
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tin tức</a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Hướng Dẫn</a>
-          </li>
-          <%- if current_user.present? %>
-          <li class="nav-item">
-            <%= link_to "Nạp tiền vào tài khoản", "/nap-tien", class: "nav-link"%>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Rút tiền", "/rut-tien", class: "nav-link"%>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Chuyển Tiền ", "/chuyen-tien", class: "nav-link"%>
-          </li>
-          <% end %>
-        </ul>
-   
+            <li class="d-none d-sm-block">
+            </li>
+                        <li class="dropdown notification-list">
+                           <%- if current_user.present? %>
+                              <%= link_to "Chào mừng: #{current_user.email}", "", class: "nav-link nav-user mr-0 waves-effect" %>
+                           <% else %>
+                           <%= link_to "Đăng ký", new_user_registration_path, class: "nav-link nav-user mr-0 waves-effect", style: "display: inline" %>/
+                           <%= link_to "Đăng Nhập", new_user_session_path, class: "nav-link nav-user mr-0 waves-effect", style: "display: inline" %>
+                           <% end %>
+                        </li>
+            <!-- <li class="dropdown notification-list">
+               <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect">
+               <i class="fe-settings noti-icon"></i>
+               </a>
+            </li> -->
+         </ul>
+         <!-- LOGO -->
+         <div class="logo-box d-none d-md-block">
+            <h1 style="display: none;">DOICARD5S.COM: Đổi thẻ cào thành tiền mặt - Gạch cước thuê bao - Uy tín nhanh chóng</h1>
+            <a href="/" class="logo text-center" title="DOICARD5S.COM: Đổi thẻ cào thành tiền mặt - Gạch cước thuê bao - Uy tín nhanh chóng">
+               <span class="logo-lg">
+                  <%= image_tag "logo.png", class: ""%>
+                  <!-- <span class="logo-lg-text-light">UBold</span> -->
+               </span>
+               <span class="logo-sm">
+                  <!-- <span class="logo-sm-text-dark">U</span> -->
+                  <img src="https://doicard5s.com/assets/frontend_new/images/logo.png" alt="Đổi thẻ cào thành tiền mặt nhanh nhất" height="24">
+               </span>
+            </a>
+         </div>
       </div>
-    </nav>
-  </div>
+   </div>
+   <!-- end Topbar -->
+   <div class="topbar-menu active">
+      <div class="container">
+         <div id="navigation" class="active">
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu">
+               <li class="has-submenu active">
+                  <a href="/"><i class="mdi mdi-view-dashboard"></i>Trang Chủ</a>
+               </li>
+               <li class="has-submenu">
+                  <a href="/history">
+                     <i class="mdi mdi-trending-up"></i> Thống Kê
+                  </a>
+               </li>
+               <li class="has-submenu">
+                  <a href="/rut-tien">
+                     <i class="mdi mdi-autorenew"></i>Rút Tiền
+                  </a>
+               </li>
+               <!-- <li class="has-submenu">
+                  <a href="https://doicard5s.com/admin/transfer">
+                     <i class="fa fa-exchange"></i> Chuyển tiền
+                  </a>
+               </li> -->
+               <li class="has-submenu last-elements">
+                  <a href="/history">
+                     <i class="mdi mdi-lifebuoy"></i>Lịch Sử Nạp Thẻ
+                  </a>
+               </li>
+              <!--  <li class="has-submenu">
+                  <a href="https://doicard5s.com/member/events">
+                     <img src="https://doicard5s.com/assets/frontend_new/images/new.gif" alt="new" width="30"> Event Đua Top Nạp
+                  </a>
+               </li> -->
+               <li class="has-submenu last-elements">
+                  <a href="/chuyen-tien">
+                     <i class="mdi mdi-checkbox-marked-circle-outline"></i>Chuyển Tiền
+                  </a>
+               </li>
+            </ul>
+            <!-- End navigation menu -->
+            <div class="clearfix"></div>
+         </div>
+         <!-- end #navigation -->
+      </div>
+      <!-- end container -->
+   </div>
+   <!-- end navbar-custom -->
 </header>
-<div class="pt-1 bg-primary">
-</div>
+<div id="news"> </div>

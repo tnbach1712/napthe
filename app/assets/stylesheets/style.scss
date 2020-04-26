@@ -13,3 +13,128 @@
 .form-card{
   min-height: 350px;
 }
+
+#topnav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  padding: 0 12px;
+  -webkit-box-shadow: 0 0 35px 0 rgba(54,61,71,.15);
+  box-shadow: 0 0 35px 0 rgba(54,61,71,.15);
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+}
+.navbar-custom{
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 35px 0 rgba(54,61,71,.15);
+  box-shadow: 0 0 35px 0 rgba(54,61,71,.15);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 70px;
+  z-index: 100;
+  padding: 0 12px;
+}
+.navbar-custom .topnav-menu .nav-link {
+  padding: 0 15px;
+  color: #313a46;
+  min-width: 32px;
+  display: block;
+  line-height: 70px;
+  text-align: center;
+  max-height: 70px;
+}
+#topnav .topbar-menu {
+  margin-top: 70px;
+}
+.navigation-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navigation-menu>li {
+  float: left;
+  position: relative;
+}
+.navigation-menu>li>a {
+  display: block;
+  color: #313a46;
+  font-size: 16px;
+  font-family: Karla,sans-serif;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  line-height: 20px;
+  padding: 20px;
+  position: relative;
+}
+#news {
+  clear: both;
+  display: block;
+  padding-top: 143px;
+}
+#byCard .cc-selector-2 input:checked+.drinkcard-cc {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  border: 2px solid #2cd617;
+}
+#byCard .drinkcard-cc {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #e7e8e8;
+  -webkit-transition: all .1s ease-in;
+}
+#byCard .viettel {
+  background-image: image-url('viettel.png');
+}
+#byCard .mobifone {
+  background-image: image-url('mobifone.png');
+}
+#byCard .vinaphone {
+  background-image: image-url('vinaphone_01.png');
+}
+#byCard .vnmb {
+  background-image: image-url('vnmb.png');
+}
+#byCard .zing {
+  background-image: image-url('zing.png');
+}
+#byCard .gate {
+  background-image: image-url('gate.png');
+}
+#frm-byCard label {
+  font-size: 14px;
+}
+#listTabCard li>a.active {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #ff530d;
+  font-size: 19px;
+  font-weight: bold;
+}
+h3.title {
+  text-transform: uppercase;
+  color: #ff530d;
+  font-size: 19px;
+  font-weight: bold;
+  border-bottom: 3px solid #0c23a0;
+  margin-bottom: 25px;
+}
+#footer {
+  background: #0c23a0;
+  padding: 40px;
+  bottom: 0;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.navigation-menu>li:hover a {
+  color: #ff530d;
+  text-decoration: none;
+}
