@@ -2,9 +2,11 @@
   swal( "Thất bại!", "Không thể giao dịch" , "error" );
 <% else %>
   <%- if @loai_thanh_toan == 'doi_the' %>
-  <% text = "Bạn vừa đổi thẻ cào của nhà mạng #{@order.preferred_nha_mang } mệnh giá  #{ number_to_currency(@order.so_tien, precision: 0, unit: 'đ', separator: ',', delimiter: '.', format: '%n%u') }" %>
+    <% text = "Bạn vừa đổi thẻ cào của nhà mạng #{@order.preferred_nha_mang } mệnh giá  #{ number_to_currency(@order.so_tien, precision: 0, unit: 'đ', separator: ',', delimiter: '.', format: '%n%u') }" %>
   <% elsif  @loai_thanh_toan == 'rut_tien'  %>
     <% text = " Gởi yêu cầu rút tiền thành công." %>
+  <% else %>
+    <% text = "Bạn vừa đổi thẻ cào của nhà mạng #{@order.preferred_nha_mang } mệnh giá  #{ number_to_currency(@order.so_tien, precision: 0, unit: 'đ', separator: ',', delimiter: '.', format: '%n%u') }" %>
   <% end %>
-  swal( "Thành công!", "<%= text %> " , "success" );
+  swal( "Yêu Cầu đang được xử lý", "<%= text %> " , "success" );
 <% end %>

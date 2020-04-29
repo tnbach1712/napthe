@@ -104,7 +104,7 @@
                             <tr>
                                 <th scope="row"><%= nhamang.ten %> </th>
                                 <td>
-                                    <%= (nhamang.menh_gias.last.phan_tram_chiec_khau * 100).to_i%>%
+                                    <%= (100 - nhamang.menh_gias.last.phan_tram_chiec_khau * 100).to_i%>%
                                 </td>
                                 <td>
                                     <span class="badge badge-success">Đang Hoạt Động</span>
