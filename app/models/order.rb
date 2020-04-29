@@ -1,5 +1,5 @@
 class Order < Base
-  NhaMang = ["Viettel", 'Vinaphone', 'Mobifone', 'Zing', 'Vcoin']
+  NhaMang = ['Viettel', 'Vinaphone', 'Mobifone', 'Vietnammobile', 'ZING', 'Gate', 'Vcoin']
   enum loai_thanh_toan: [:doi_the, :ban_tai_khoan, :chuyen_tien, :rut_tien]
   enum status: [:pending, :processing, :success, :fail]
   before_create :generate_number
@@ -29,7 +29,8 @@ class Order < Base
     # cong tiền vào tài khoản
     # tính tiền cộng
     nha_mang = ::NhaMang.find_by(ten: self.preferred_nha_mang)
-    tien_duoc_cong = so_tien * nha_mang.phan_tram_chiec_khau
+    menh_gia = nha_mang.menh_gias.find_by_so_tien so_tien
+    tien_duoc_cong = menh_gia.tien_thuc_te
     self.user.nap_tien(tien_duoc_cong)
     # cong tien cho ref_user
     self.user.ref_user.nap_tien(so_tien*0.01) if self.user.try(:ref_user).present?
@@ -40,7 +41,12 @@ class Order < Base
     fail!
   end
 
+  def nha_mang
+    ::NhaMang.find_by(ten: self.preferred_nha_mang)
+  end
+  
   protected
+  
   def generate_number
     self.number = loop do
       random_number = SecureRandom.urlsafe_base64(10, false)

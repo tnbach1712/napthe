@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nha_mang_id: 1
-  so_tien: 1
-  phan_tram_chiec_khau: 
+  nha_mang: 
+  phan_tram_chiec_khau: 1.5
+  so_tien: 1.5
 
 two:
-  nha_mang_id: 1
-  so_tien: 1
-  phan_tram_chiec_khau: 
+  nha_mang: 
+  phan_tram_chiec_khau: 1.5
+  so_tien: 1.5

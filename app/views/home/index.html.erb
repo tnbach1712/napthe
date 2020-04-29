@@ -47,6 +47,10 @@
                                             <input id="gate" type="radio" name="order[preferred_nha_mang]" value="Gate" class="d-none" onchange="return Custom.hideSelectPayment('nhamang');">
                                             <label class="drinkcard-cc gate" for="gate"></label>
                                         </div>
+                                        <div class="col-md-3 col-lg-3 col-6">
+                                            <input id="vcoin" type="radio" name="order[preferred_nha_mang]" value="Vcoin" class="d-none" onchange="return Custom.hideSelectPayment('nhamang');">
+                                            <label class="drinkcard-cc vcoin" for="vcoin"></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -56,10 +60,10 @@
                                 
                                 <select class="form-control valid form-control-sm" name="order[so_tien]" id="so_tien">
                                     <option value="">Chọn mệnh giá</option>
-                                    <option value="10000">10,000đ </option>
-                                    <option value="20000">20,000đ </option>
-                                    <option value="30000">30,000đ </option>               	
-                                    <option value="50000">50,000đ</option>
+                                    <option value="10000">10,000đ  (40%)</option>
+                                    <option value="20000">20,000đ  (40%)</option>
+                                    <option value="30000">30,000đ  (40%)</option>               	
+                                    <option value="50000">50,000đ (40%)</option>
                                     <option value="100000">100,000đ</option>
                                     <option value="200000">200,000đ</option>
                                     <option value="300000">300,000đ</option>
@@ -96,69 +100,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">Vietnamobile Auto</th>
-                            <td>
-                                24%
-                            </td>
-                            <td>
-                                <span class="badge badge-success">Đang Hoạt Động</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Viettel chậm</th>
-                            <td>
-                                31%
-                            </td>
-                            <td>
-                                <span class="badge badge-success">Đang Hoạt Động</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Viettel Auto</th>
-                            <td>
-                                33%
-                            </td>
-                            <td>
-                                <span class="badge badge-success">Đang Hoạt Động</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Vinaphone Auto (ưu tiên)</th>
-                            <td>
-                                30%
-                            </td>
-                            <td>
-                                <span class="badge badge-success">Đang Hoạt Động</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Mobifone Auto</th>
-                            <td>
-                                38%
-                            </td>
-                            <td>
-                                <span class="badge badge-success">Đang Hoạt Động</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Zing Auto</th>
-                            <td>
-                                25%
-                            </td>
-                            <td>
-                                <span class="badge badge-success">Đang Hoạt Động</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Gate Auto</th>
-                            <td>
-                                30%
-                            </td>
-                            <td>
-                                <span class="badge badge-success">Đang Hoạt Động</span>
-                            </td>
-                        </tr>
+                        <% NhaMang.all.each do |nhamang|%>
+                            <tr>
+                                <th scope="row"><%= nhamang.ten %> </th>
+                                <td>
+                                    <%= (nhamang.menh_gias.last.phan_tram_chiec_khau * 100).to_i%>%
+                                </td>
+                                <td>
+                                    <span class="badge badge-success">Đang Hoạt Động</span>
+                                </td>
+                            </tr>
+                        <% end %>
                     </tbody>
                 </table>
             </div>

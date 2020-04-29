@@ -99,6 +99,9 @@
 #byCard .vinaphone {
   background-image: image-url('vinaphone_01.png');
 }
+#byCard .vcoin {
+  background-image: image-url('vcoin.png');
+}
 #byCard .vnmb {
   background-image: image-url('vnmb.png');
 }
@@ -127,7 +130,8 @@ h3.title {
   margin-bottom: 25px;
 }
 #footer {
-  background: #0c23a0;
+  border-top: solid 3px #e31a1b;
+  // background: #0c23a0;
   padding: 40px;
   bottom: 0;
   width: 100%;

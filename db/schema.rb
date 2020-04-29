@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_102046) do
+ActiveRecord::Schema.define(version: 2020_04_29_030959) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2020_04_24_102046) do
     t.float "phan_tram_chiec_khau"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "menh_gias", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "nha_mang_id"
+    t.float "phan_tram_chiec_khau"
+    t.float "so_tien"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nha_mang_id"], name: "index_menh_gias_on_nha_mang_id"
   end
 
   create_table "nha_mangs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

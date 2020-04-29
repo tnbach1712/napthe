@@ -19,7 +19,7 @@
             </li>
                         <li class="dropdown notification-list">
                            <%- if current_user.present? %>
-                              <%= link_to "Chào mừng: #{current_user.email}", "", class: "nav-link nav-user mr-0 waves-effect" %>
+                              <%= link_to "Chào mừng: #{current_user.email}", "/profile", class: "nav-link nav-user mr-0 waves-effect" %>
                            <% else %>
                            <%= link_to "Đăng ký", new_user_registration_path, class: "nav-link nav-user mr-0 waves-effect", style: "display: inline" %>/
                            <%= link_to "Đăng Nhập", new_user_session_path, class: "nav-link nav-user mr-0 waves-effect", style: "display: inline" %>
@@ -36,7 +36,7 @@
             <h1 style="display: none;">DOICARD5S.COM: Đổi thẻ cào thành tiền mặt - Gạch cước thuê bao - Uy tín nhanh chóng</h1>
             <a href="/" class="logo text-center" title="DOICARD5S.COM: Đổi thẻ cào thành tiền mặt - Gạch cước thuê bao - Uy tín nhanh chóng">
                <span class="logo-lg">
-                  <%= image_tag "logo.png", class: ""%>
+                  <%= image_tag "logo.jpg", class: ""%>
                   <!-- <span class="logo-lg-text-light">UBold</span> -->
                </span>
                <span class="logo-sm">
